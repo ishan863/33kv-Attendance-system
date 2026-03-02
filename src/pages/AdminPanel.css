@@ -1,0 +1,204 @@
+.admin-page { background: var(--bg-primary); }
+
+.admin-content {
+  padding-top: 88px;
+  padding-bottom: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Stats */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.admin-stat {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.admin-stat-val {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Tabs */
+.admin-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  width: fit-content;
+}
+
+.admin-tab {
+  padding: 10px 22px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: var(--transition);
+}
+
+.admin-tab:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); }
+
+.admin-tab.active {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  color: white;
+  box-shadow: 0 4px 16px rgba(79,142,247,0.35);
+}
+
+/* Tab Panel */
+.tab-panel { display: flex; flex-direction: column; gap: 20px; }
+
+.tab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-box { position: relative; }
+.search-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/* Employee Avatar */
+.emp-avatar-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Role Badge */
+.role-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.role-employee { background: rgba(79,142,247,0.18); color: #7fb3ff; }
+.role-supervisor { background: rgba(168,85,247,0.18); color: #c084fc; }
+.role-admin { background: rgba(245,158,11,0.18); color: #fbbf24; }
+
+/* Action Buttons */
+.action-btns { display: flex; gap: 6px; }
+
+/* Teams Grid */
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.team-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.team-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+
+.team-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(79,142,247,0.25), rgba(168,85,247,0.25));
+  border: 1px solid rgba(79,142,247,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--accent-cyan);
+}
+
+.team-name {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.team-count {
+  font-size: 12px;
+  color: var(--accent-green);
+  background: rgba(34,197,94,0.1);
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+
+.team-actions { display: flex; gap: 8px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-stats { grid-template-columns: repeat(2,1fr); }
+  .tab-header { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .admin-stats { grid-template-columns: 1fr 1fr; }
+}
+
+/* flex-wrap helper */
+.flex-wrap { flex-wrap: wrap; }
+
+/* Import Banner */
+.import-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  flex-wrap: wrap;
+  border: 1px solid rgba(34,197,94,0.25);
+  background: rgba(34,197,94,0.06);
+}
+
+.import-banner-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.import-banner-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
