@@ -563,18 +563,16 @@ body {
   .btn-ghost:not([title="Logout"]) .fa-shield-halved { margin-right: 0; }
 }
 
-/* ── Modal mobile ── */
+/* ── Modal mobile — centered full-width, NOT bottom-sheet ── */
 @media (max-width: 480px) {
+  .modal-overlay { padding: 12px; align-items: center; }
   .modal, .modal-box {
-    padding: 18px 16px;
+    padding: 20px 16px;
     border-radius: var(--radius-lg);
-    max-height: 95vh;
-    margin: 0 8px;
-  }
-  .modal-overlay { padding: 10px; align-items: flex-end; }
-  .modal, .modal-box {
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    max-height: 90vh;
+    max-height: 92vh;
+    width: 100%;
+    margin: 0;
+    overflow-y: auto;
   }
 }
 

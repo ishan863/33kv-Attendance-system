@@ -168,16 +168,66 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .admin-stats { grid-template-columns: repeat(2,1fr); }
+  .admin-stats { grid-template-columns: repeat(2,1fr); gap: 10px; }
   .tab-header { flex-direction: column; align-items: flex-start; }
+  .admin-stat { padding: 14px 10px; }
+  .admin-stat-val { font-size: 26px; }
 }
 
 @media (max-width: 480px) {
   .admin-stats { grid-template-columns: 1fr 1fr; }
 }
 
-/* flex-wrap helper */
-.flex-wrap { flex-wrap: wrap; }
+/* ── Mobile admin overhaul ── */
+@media (max-width: 700px) {
+  .admin-content { padding-top: 72px; padding-left: 10px; padding-right: 10px; gap: 14px; }
+
+  /* Tabs: icon + short label only */
+  .admin-tabs { width: 100%; box-sizing: border-box; }
+  .admin-tab  { flex: 1; justify-content: center; padding: 10px 6px; font-size: 12px; gap: 5px; }
+  .admin-tab-label { display: none; }
+
+  /* Import banner stacks */
+  .import-banner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 12px 14px; }
+  .import-banner-actions { width: 100%; }
+  .import-banner-actions .btn { flex: 1; justify-content: center; }
+  .import-banner-text > div > .text-sm { display: none; }
+
+  /* Tab header stacks */
+  .tab-header { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+  .tab-header .btn { width: 100%; justify-content: center; }
+  .search-box { width: 100%; }
+  .search-box .form-input { width: 100%; }
+
+  /* Employee table: hide # and Designation columns */
+  .col-desig-inline,
+.col-team-inline { display: none; }
+
+.data-table .col-num,
+  .data-table .col-desig,
+  .data-table .col-phone { display: none; }
+
+  .data-table th, .data-table td { padding: 9px 8px; font-size: 12px; }
+
+  /* Attendance table: hide Time, show compact */
+  .data-table .col-time { display: none; }
+  .data-table .col-team { display: none; }
+
+  /* Action buttons stack */
+  .action-btns { flex-direction: row; gap: 4px; }
+  .action-btns .btn-sm { padding: 7px 9px; }
+
+  /* Teams grid single col */
+  .teams-grid { grid-template-columns: 1fr; }
+
+  /* Attendance filter row */
+  .col-desig-inline { display: block !important; font-size: 9px; opacity: 0.8; }
+  .col-team-inline { display: block !important; font-size: 9px; opacity: 0.8; }
+  .att-filter-row { flex-direction: column !important; gap: 8px !important; align-items: flex-start !important; }
+  .att-filter-row input,
+  .att-filter-row select { width: 100% !important; }
+}
+
 
 /* Import Banner */
 .import-banner {

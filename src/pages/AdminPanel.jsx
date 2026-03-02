@@ -575,8 +575,8 @@ export default function AdminPanel() {
               <table className="data-table">
                 <thead>
                   <tr>
-                    <th>#</th><th>Name</th><th>Phone</th><th>Team</th>
-                    <th>Designation</th><th>Role</th><th>Status</th><th>Actions</th>
+                    <th className="col-num">#</th><th>Name</th><th className="col-phone">Phone</th><th>Team</th>
+                    <th className="col-desig">Designation</th><th>Role</th><th>Status</th><th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -587,16 +587,19 @@ export default function AdminPanel() {
                   )}
                   {filteredEmps.map((emp, i) => (
                     <tr key={emp.id}>
-                      <td style={{ color:'var(--text-muted)' }}>{i+1}</td>
+                      <td className="col-num" style={{ color:'var(--text-muted)' }}>{i+1}</td>
                       <td>
                         <div className="flex items-center gap-2">
                           <div className="emp-avatar-sm">{emp.name?.charAt(0)}</div>
-                          <span style={{ fontWeight:600 }}>{emp.name}</span>
+                          <div>
+                            <span style={{ fontWeight:600 }}>{emp.name}</span>
+                            <div className="text-xs text-muted col-desig-inline">{emp.designation || ''}</div>
+                          </div>
                         </div>
                       </td>
-                      <td style={{ fontFamily:'monospace' }}>{emp.phone}</td>
+                      <td className="col-phone" style={{ fontFamily:'monospace' }}>{emp.phone}</td>
                       <td><span style={{ color:'var(--accent-cyan)', fontSize:13 }}>{emp.team || '—'}</span></td>
-                      <td>{emp.designation || '—'}</td>
+                      <td className="col-desig">{emp.designation || '—'}</td>
                       <td><span className={`role-badge role-${emp.role}`}>{emp.role}</span></td>
                       <td>
                         <span className={`badge ${emp.status==='active'?'badge-present':'badge-off'}`}>
@@ -691,7 +694,7 @@ export default function AdminPanel() {
                 ))}
               </div>
               {/* Date inputs + search + export */}
-              <div className="flex gap-3 items-center flex-wrap" style={{ justifyContent:'space-between' }}>
+              <div className="flex gap-3 items-center flex-wrap att-filter-row" style={{ justifyContent:'space-between' }}>
                 <div className="flex gap-3 items-center flex-wrap">
                   <div style={{ display:'flex', gap:8, alignItems:'center' }}>
                     <input type="date" className="form-input" style={{ width:155, padding:'8px 12px' }}
@@ -716,8 +719,8 @@ export default function AdminPanel() {
               <table className="data-table">
                 <thead>
                   <tr>
-                    <th>Employee</th><th>Team</th><th>Date</th>
-                    <th>Status</th><th>Time</th><th>Photo</th><th>Edit</th>
+                    <th>Employee</th><th className="col-team">Team</th><th>Date</th>
+                    <th>Status</th><th className="col-time">Time</th><th>Photo</th><th>Edit</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -728,11 +731,14 @@ export default function AdminPanel() {
                   )}
                   {filteredAtt.map(rec => (
                     <tr key={rec.id}>
-                      <td style={{ fontWeight:600 }}>{rec.employeeName}</td>
-                      <td style={{ color:'var(--accent-cyan)' }}>{rec.team || '—'}</td>
+                      <td style={{ fontWeight:600 }}>
+                        <div>{rec.employeeName}</div>
+                        <div className="text-xs col-team-inline" style={{ color:'var(--accent-cyan)' }}>{rec.team || ''}</div>
+                      </td>
+                      <td className="col-team" style={{ color:'var(--accent-cyan)' }}>{rec.team || '—'}</td>
                       <td style={{ fontFamily:'monospace' }}>{rec.date}</td>
                       <td><span className={`badge badge-${rec.status?.toLowerCase()}`}>{rec.status}</span></td>
-                      <td style={{ fontFamily:'monospace', fontSize:12 }}>{rec.time || '—'}</td>
+                      <td className="col-time" style={{ fontFamily:'monospace', fontSize:12 }}>{rec.time || '—'}</td>
                       <td>
                         {rec.photoUrl ? (
                           <button className="btn btn-ghost btn-sm" onClick={() => setViewPhoto(rec)}>

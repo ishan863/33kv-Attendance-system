@@ -115,6 +115,9 @@
 
 .team-col { min-width: 100px !important; }
 
+/* inline team shown only on mobile */
+.emp-team-inline { display: none; }
+
 .date-col {
   min-width: 36px;
   width: 36px;
@@ -219,6 +222,47 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .summary-row { grid-template-columns: repeat(2, 1fr); }
+  .summary-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .sup-header { flex-direction: column; }
+  .summary-card { padding: 14px 10px; }
+  .summary-val  { font-size: 24px; }
+}
+
+/* ── Mobile matrix overhaul ── */
+@media (max-width: 700px) {
+  .sup-content { padding-top: 72px; padding-left: 10px; padding-right: 10px; gap: 14px; }
+
+  /* Controls stack & scroll */
+  .sup-controls { flex-direction: column; align-items: flex-start; gap: 8px; width: 100%; }
+  .range-tabs { width: 100%; }
+  .range-tab  { flex: 1; text-align: center; padding: 8px 4px; font-size: 12px; }
+
+  /* Hide team column on mobile — team name shown in emp cell instead */
+  .team-col { display: none !important; }
+  .emp-team-inline { display: block !important; font-size: 9px; opacity: 0.9; }
+
+  /* Employee column — compact */
+  .emp-col { min-width: 110px !important; max-width: 130px; padding: 8px 8px !important; }
+  .emp-avatar { width: 24px; height: 24px; font-size: 11px; }
+  .emp-cell   { gap: 6px; }
+  .emp-cell .text-xs { display: none; }  /* hide designation on mobile */
+  .emp-cell > div > div:first-child { font-size: 11px !important; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Date cells — tighter */
+  .date-col  { min-width: 28px !important; width: 28px !important; }
+  .date-cell { padding: 7px 1px !important; font-size: 11px !important; }
+
+  /* Summary column — compact */
+  .summary-col { min-width: 60px !important; }
+  .row-summary { gap: 3px; font-size: 10px; flex-direction: column; align-items: center; }
+
+  /* Table header */
+  .matrix-table thead th { padding: 7px 4px !important; font-size: 9px !important; }
+
+  /* Legend: horizontal scroll */
+  .legend { padding: 10px 12px; gap: 12px; overflow-x: auto; flex-wrap: nowrap; }
+  .legend-item { flex-shrink: 0; }
+
+  /* Stats row 2-col */
+  .summary-row { grid-template-columns: repeat(2,1fr) !important; }
 }

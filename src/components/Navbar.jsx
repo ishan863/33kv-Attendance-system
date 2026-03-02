@@ -31,7 +31,7 @@ export default function Navbar() {
             className={`btn btn-ghost btn-sm ${location.pathname === '/supervisor' ? 'btn-active' : ''}`}
             onClick={() => navigate('/supervisor')}
           >
-            <i className="fas fa-table-cells" /> Team View
+            <i className="fas fa-table-cells" /> <span className="nav-label">Team View</span>
           </button>
         )}
         { user?.role === 'admin' && (
@@ -39,7 +39,7 @@ export default function Navbar() {
             className={`btn btn-ghost btn-sm ${location.pathname === '/admin' ? 'btn-active' : ''}`}
             onClick={() => navigate('/admin')}
           >
-            <i className="fas fa-shield-halved" /> Admin
+            <i className="fas fa-shield-halved" /> <span className="nav-label">Admin</span>
           </button>
         )}
         { user?.role !== 'admin' && (
@@ -47,7 +47,7 @@ export default function Navbar() {
             className={`btn btn-ghost btn-sm ${location.pathname === '/dashboard' ? 'btn-active' : ''}`}
             onClick={() => navigate('/dashboard')}
           >
-            <i className="fas fa-house" /> My Dashboard
+            <i className="fas fa-house" /> <span className="nav-label">My Dashboard</span>
           </button>
         )}
 
@@ -78,7 +78,14 @@ export default function Navbar() {
         .user-info { display:flex; flex-direction:column; line-height:1.2; }
         .user-name { font-size:12px; font-weight:600; color:var(--text-primary); }
         .user-role { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; }
-        @media(max-width:600px){ .user-info,.navbar-actions .btn-ghost:not(:last-child):not(.user-chip *){ display:none; } }
+        .nav-label { display:inline; }
+        @media(max-width:600px){
+          .user-info { display:none; }
+          .nav-label { display:none; }
+          .navbar-brand span { font-size:13px; }
+          .navbar-actions { gap:4px; }
+          .btn-ghost.btn-sm { padding:8px 10px; min-width:36px; }
+        }
       `}</style>
     </nav>
   )

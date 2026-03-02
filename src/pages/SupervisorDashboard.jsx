@@ -230,7 +230,8 @@ export default function SupervisorDashboard() {
                           <div className="emp-avatar">{emp.name?.charAt(0)}</div>
                           <div>
                             <div style={{ fontWeight:600, fontSize:13 }}>{emp.name}</div>
-                            <div className="text-xs text-muted">{emp.designation || '—'}</div>
+                            <div className="text-xs text-muted emp-sub-info">{emp.designation || '—'}</div>
+                            <div className="text-xs emp-team-inline" style={{ color:'var(--accent-cyan)' }}>{emp.team || ''}</div>
                           </div>
                         </div>
                       </td>
